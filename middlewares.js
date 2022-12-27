@@ -10,7 +10,6 @@ export default async function middleware(req) {
       pathname !== "/auth/login" &&
       pathname !== "/auth/register/worker" &&
       pathname !== "/auth/register/recruiter" &&
-      pathname !== "/auth/forgot" &&
       !pathname.match(/\/auth\/reset\/[\w]*/gi)
     ) {
       return NextResponse.redirect(`${origin}/auth/login`);
@@ -22,7 +21,6 @@ export default async function middleware(req) {
       pathname === "/auth/login" ||
       pathname === "/auth/register/worker" ||
       pathname === "/auth/register/recruiter" ||
-      pathname === "/auth/forgot" ||
       pathname.match(/\/auth\/reset\/[\w]*/gi)
     ) {
       return NextResponse.redirect(`${origin}/`);
