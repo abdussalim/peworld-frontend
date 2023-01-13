@@ -28,7 +28,7 @@ const Landing = ({ data, worker }) => {
       <Head>
         <title>Peworld - Home</title>
         <meta name="description" content="Landing page" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <Home1 />
       <Home2 />

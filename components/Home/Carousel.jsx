@@ -94,8 +94,6 @@ export default function Carousel({ worker }) {
     "Peworld mempunyai tim yang sangat kompeten dalam membantu saya menemukan penkerjaan yang saya inginkan!",
   ];
 
-  const testimonyNumber = [1, 2, 3, 4, 5];
-
   return (
     <div className={`container-fluid ${styles["slider-container"]}`}>
       <h1 className="fw-bold text-center mb-5">
