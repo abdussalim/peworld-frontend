@@ -46,7 +46,7 @@ const Login = () => {
       <Head>
         <title>{process.env.NEXT_PUBLIC_APP_NAME} - Login</title>
         <meta name="description" content="Login page for Hiring App" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <div className="container-fluid">

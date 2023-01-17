@@ -62,7 +62,7 @@ export default function LoginForm({
             />
           </div>
           <div className="d-flex justify-content-end mb-3">
-            <Link href="/auth/forgot" className="text-secondary">
+            <Link href="/auth/forgotpassword" className="text-secondary">
               Lupa kata sandi?
             </Link>
           </div>

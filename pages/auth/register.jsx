@@ -69,7 +69,7 @@ const RegisterRecruiter = () => {
       <Head>
         <title>{process.env.NEXT_PUBLIC_APP_NAME} - Register</title>
         <meta name="description" content="Register page for Hiring App" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       <div className="container-fluid">
