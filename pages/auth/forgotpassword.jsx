@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Header from "../../components/Header";
 import { forgot } from "../../redux/actions/auth";
 import { createToast } from "../../utils/createToast";
 import SideAuth from "../../components/Auth/SideAuth";
 import ForgotForm from "../../components/Auth/ForgotForm";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 const Forgot = () => {
   const router = useRouter();
@@ -45,12 +46,10 @@ const Forgot = () => {
 
   return (
     <>
-      <Head>
-        <title>GoHired - Forgot Password</title>
-        <meta name="description" content="Forgot Password page for GoHired" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <Header
+        title="Forgot Password"
+        content={`Forgot Password page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
       <div className="container-fluid">
         <div className="row">
           <SideAuth />

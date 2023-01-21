@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -14,6 +13,7 @@ import { createToast } from "../../../utils/createToast";
 import ExperienceForm from "../../../components/Profile/Experience";
 import ProjectForm from "../../../components/Profile/Project";
 import Link from "next/link";
+import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../../../utils/env";
 
 export async function getServerSideProps(context) {
   try {
@@ -29,15 +29,12 @@ export async function getServerSideProps(context) {
       };
     }
 
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        // withCredentials: true,
-      }
-    );
+    const res = await axios.get(`${NEXT_PUBLIC_API_URL}/user/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      // withCredentials: true,
+    });
 
     return {
       props: {
@@ -288,11 +285,10 @@ const Edit = ({ data, token, isApiError, apiError }) => {
 
   return (
     <>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_APP_NAME} - Edit Profile</title>
-        <meta name="description" content="Edit Profile page" />
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <Header
+        title="Edit Profile"
+        content={`Edit Profile page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
       <div className="container-fluid p-0">
         <div className={styles["back-purple"]}></div>
         <div className="row mx-auto" style={{ maxWidth: "1200px" }}>

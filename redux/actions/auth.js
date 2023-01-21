@@ -1,12 +1,10 @@
 import axios from "axios";
 import { setCookie } from "cookies-next";
+import { NEXT_PUBLIC_API_URL } from "../../utils/env";
 
 export const login = async (data, setErrors) => {
   try {
-    const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-      data
-    );
+    const res = await axios.post(`${NEXT_PUBLIC_API_URL}/auth/login`, data);
     setCookie("token", `${res.data.token.jwt}`);
     setCookie("id", `${res.data.token.id}`);
     setCookie("role", `${res.data.token.role}`);
@@ -29,7 +27,7 @@ export const login = async (data, setErrors) => {
 
 export const register = async (data, setErrors) => {
   try {
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, data);
+    await axios.post(`${NEXT_PUBLIC_API_URL}/auth/register`, data);
 
     return true;
   } catch (error) {
@@ -49,7 +47,7 @@ export const register = async (data, setErrors) => {
 
 export const forgot = async (data, setErrors) => {
   try {
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/forgot`, data);
+    await axios.post(`${NEXT_PUBLIC_API_URL}/auth/forgot`, data);
 
     return true;
   } catch (error) {
@@ -69,10 +67,7 @@ export const forgot = async (data, setErrors) => {
 
 export const reset = async (token, data, setErrors) => {
   try {
-    await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/auth/reset/${token}`,
-      data
-    );
+    await axios.post(`${NEXT_PUBLIC_API_URL}/auth/reset/${token}`, data);
 
     return true;
   } catch (error) {

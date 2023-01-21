@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import Head from "next/head";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { wrapper } from "../../redux/store";
+import { useState, useEffect } from "react";
 import {
   GET_DETAIL_USER_FAILED,
   GET_DETAIL_USER_SUCCESS,
 } from "../../redux/actions/type";
 import ProfileWorker from "../../components/Profile/Worker";
 import ProfileRecruiter from "../../components/Profile/Recruiter";
+import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../../utils/env";
+import Header from "../../components/Header";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
@@ -18,15 +19,12 @@ export const getServerSideProps = wrapper.getServerSideProps(
       const { id } = context.query;
       const token = context.req.cookies.token;
 
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/user/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          // withCredentials: true,
-        }
-      );
+      const response = await axios.get(`${NEXT_PUBLIC_API_URL}/user/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        // withCredentials: true,
+      });
 
       store.dispatch({
         type: GET_DETAIL_USER_SUCCESS,
@@ -63,11 +61,10 @@ const Profile = ({ token, id }) => {
 
   return (
     <>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_APP_NAME} - Profile</title>
-        <meta name="description" content="Home page contains list worker" />
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <Header
+        title="Profile"
+        content={`Profile page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
       {!detailUser.data.isError ? (
         <>
           {detailUser.data.id ? (

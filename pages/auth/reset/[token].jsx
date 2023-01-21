@@ -1,10 +1,10 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { reset } from "../../../redux/actions/auth";
 import { createToast } from "../../../utils/createToast";
 import SideAuth from "../../../components/Auth/SideAuth";
 import ResetForm from "../../../components/Auth/ResetForm";
+import { NEXT_PUBLIC_APP_NAME } from "../../../utils/env";
 
 const Reset = () => {
   const router = useRouter();
@@ -45,11 +45,10 @@ const Reset = () => {
 
   return (
     <>
-      <Head>
-        <title>GoHired - Reset Password</title>
-        <meta name="description" content="Forgot Password page for GoHired" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header
+        title="Reset Password"
+        content={`Reset Password page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
 
       <div className="container-fluid">
         <div className="row">

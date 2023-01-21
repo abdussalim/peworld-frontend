@@ -10,6 +10,7 @@ import {
   GET_DETAIL_USER_SUCCESS,
   GET_DETAIL_USER_FAILED,
 } from "../actions/type";
+import { NEXT_PUBLIC_API_URL } from "../../utils/env";
 
 export const getListWorker = (token) => async (dispatch) => {
   try {
@@ -18,14 +19,11 @@ export const getListWorker = (token) => async (dispatch) => {
       payload: null,
     });
 
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/worker`,
-      {
-        headers: {
-          token,
-        },
-      }
-    );
+    const response = await axios.get(`${NEXT_PUBLIC_API_URL}/user/worker`, {
+      headers: {
+        token,
+      },
+    });
 
     dispatch({
       type: GET_LIST_WORKER_SUCCESS,
@@ -50,14 +48,11 @@ export const getListRecruiter = (token) => async (dispatch) => {
       payload: null,
     });
 
-    const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/recruiter`,
-      {
-        headers: {
-          token,
-        },
-      }
-    );
+    const response = await axios.get(`${NEXT_PUBLIC_API_URL}/user/recruiter`, {
+      headers: {
+        token,
+      },
+    });
 
     dispatch({
       type: GET_LIST_RECRUITER_SUCCESS,
@@ -82,15 +77,12 @@ export const getDetailUser = (id, token) => async (dispatch) => {
       payload: null,
     });
 
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        // withCredentials: true,
-      }
-    );
+    const res = await axios.get(`${NEXT_PUBLIC_API_URL}/user/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      // withCredentials: true,
+    });
 
     dispatch({
       type: GET_DETAIL_USER_SUCCESS,
@@ -106,15 +98,11 @@ export const getDetailUser = (id, token) => async (dispatch) => {
 
 export const editProfile = async (id, token, data, setErrors) => {
   try {
-    await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}/profile`,
-      data,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    await axios.put(`${NEXT_PUBLIC_API_URL}/user/${id}/profile`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     return true;
   } catch (error) {
@@ -134,16 +122,12 @@ export const editProfile = async (id, token, data, setErrors) => {
 
 export const editPhoto = async (id, token, data, setErrors) => {
   try {
-    await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/${id}/photo`,
-      data,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    await axios.put(`${NEXT_PUBLIC_API_URL}/user/${id}/photo`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     return true;
   } catch (error) {
@@ -163,16 +147,12 @@ export const editPhoto = async (id, token, data, setErrors) => {
 
 export const editPhotoProject = async (id, token, data, setErrors) => {
   try {
-    await axios.put(
-      `${process.env.NEXT_PUBLIC_API_URL}/project/${id}/photo`,
-      data,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    await axios.put(`${NEXT_PUBLIC_API_URL}/project/${id}/photo`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     return true;
   } catch (error) {

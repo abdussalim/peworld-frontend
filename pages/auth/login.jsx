@@ -1,10 +1,11 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Header from "../../components/Header";
 import { login } from "../../redux/actions/auth";
-import { createToast } from "../../utils/createToast";
 import Banner from "../../components/Auth/Banner";
 import LoginForm from "../../components/Auth/Login";
+import { createToast } from "../../utils/createToast";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 const Login = () => {
   const router = useRouter();
@@ -43,11 +44,10 @@ const Login = () => {
 
   return (
     <>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_APP_NAME} - Login</title>
-        <meta name="description" content="Login page for Hiring App" />
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <Header
+        title="Login"
+        content={`Login page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
 
       <div className="container-fluid">
         <div className="row">

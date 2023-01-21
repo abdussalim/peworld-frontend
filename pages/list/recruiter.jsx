@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Head from "next/head";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -13,13 +12,15 @@ import {
 } from "../../redux/actions/type";
 import styles from "../../styles/Detail.module.css";
 import Pagination from "../../components/Pagination";
+import Header from "../../components/Header";
+import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     // get api and save to redux during ssr
     try {
       const token = context.req.cookies.token;
-      let url = `${process.env.NEXT_PUBLIC_API_URL}/user/recruiter?`;
+      let url = `${NEXT_PUBLIC_API_URL}/user/recruiter?`;
 
       // set search query if exist
       if (context.query.search) {
@@ -113,11 +114,11 @@ const ListRecruiter = () => {
 
   return (
     <>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_APP_NAME} - List Worker</title>
-        <meta name="description" content="List Worker page" />
-        <link rel="icon" href="/logo.ico" />
-      </Head>
+      <Header
+        title="List Recruiter"
+        content={`List Recruiter page for ${NEXT_PUBLIC_APP_NAME}`}
+      />
+
       <div className={styles.top}>
         <div className="container py-3">
           <h3 className="fw-bold m-0">Top Jobs</h3>

@@ -16,9 +16,7 @@ export default function Banner() {
               <div style={{ position: "relative", height: 40, width: 40 }}>
                 <Image src={Logo} alt="Hiring App Logo" fill sizes="100vw" />
               </div>
-              <p className="ms-2 mt-3 text-white">
-                {process.env.NEXT_PUBLIC_APP_NAME}
-              </p>
+              <p className="ms-2 mt-3 text-white">{NEXT_PUBLIC_APP_NAME}</p>
             </div>
           </Link>
         </div>
