@@ -1,7 +1,9 @@
-import { useState } from "react";
-import Image from "next/image";
 import axios from "axios";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/router";
+import Header from "../../../components/Header";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "../../../styles/Profile.module.css";
 import {
@@ -10,9 +12,8 @@ import {
   editPhotoProject,
 } from "../../../redux/actions/users";
 import { createToast } from "../../../utils/createToast";
-import ExperienceForm from "../../../components/Profile/Experience";
 import ProjectForm from "../../../components/Profile/Project";
-import Link from "next/link";
+import ExperienceForm from "../../../components/Profile/Experience";
 import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../../../utils/env";
 
 export async function getServerSideProps(context) {

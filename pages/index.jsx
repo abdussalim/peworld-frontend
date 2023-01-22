@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
+import Header from "../components/Header";
 import Home1 from "../components/Home/Home1";
 import Home2 from "../components/Home/Home2";
 import Home3 from "../components/Home/Home3";
-import Carousel from "../components/Home/Carousel";
 import Home4 from "../components/Home/Home4";
+import Carousel from "../components/Home/Carousel";
 import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../utils/env";
-import Header from "../components/Header";
 
 export async function getStaticProps() {
   const response = await axios.get(`${NEXT_PUBLIC_API_URL}/skill/static`);
