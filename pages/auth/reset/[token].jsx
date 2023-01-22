@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Header from "../../../components/Header";
 import { reset } from "../../../redux/actions/auth";
 import { createToast } from "../../../utils/createToast";
 import SideAuth from "../../../components/Auth/SideAuth";

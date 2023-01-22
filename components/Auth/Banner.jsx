@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/legacy/image";
 import styles from "../../styles/Auth.module.css";
 import Logo from "../../public/image/logo-white.png";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 export default function Banner() {
   return (
