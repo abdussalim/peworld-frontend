@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/legacy/image";
 import Swal from "sweetalert2";
+import Image from "next/legacy/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Logo from "../public/image/logo.png";
 import styles from "../styles/Navbar.module.css";
+import { NEXT_PUBLIC_APP_NAME } from "../utils/env";
 
 export default function Navbar({ token = null, id = null }) {
   const router = useRouter();
@@ -98,7 +99,7 @@ export default function Navbar({ token = null, id = null }) {
                   }}
                 />
               </div>
-              <span className="ms-2">{process.env.NEXT_APP_NAME}</span>
+              <span className="ms-2">{NEXT_PUBLIC_APP_NAME}</span>
             </div>
           </a>
         </Link>

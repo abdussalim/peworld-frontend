@@ -1,7 +1,7 @@
 import React from "react";
+import Image from "next/legacy/image";
 import styles from "../../styles/Home.module.css";
 import Banner3 from "../../public/image/baner3.png";
-import Image from "next/legacy/image";
 
 export default function Home3({ data }) {
   return (

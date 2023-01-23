@@ -4,6 +4,7 @@ import Image from "next/legacy/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "../../styles/Home.module.css";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 function CustomNextArrow(props) {
   const { className, style, onClick } = props;
@@ -97,7 +98,7 @@ export default function Carousel({ worker }) {
   return (
     <div className={`container-fluid ${styles["slider-container"]}`}>
       <h1 className="fw-bold text-center mb-5">
-        Their opinion about {process.env.NEXT_PUBLIC_APP_NAME}
+        Their opinion about {NEXT_PUBLIC_APP_NAME}
       </h1>
       <Slider {...settings}>
         {worker.slice(0, 5).map((worker, index) => (

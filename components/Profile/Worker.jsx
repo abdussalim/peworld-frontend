@@ -1,7 +1,8 @@
-import Image from "next/legacy/image";
+import axios from "axios";
 import moment from "moment";
-import Swal from "sweetalert2";
 import Link from "next/link";
+import Swal from "sweetalert2";
+import Image from "next/legacy/image";
 import {
   FaMapMarkerAlt,
   FaInstagram,
@@ -9,8 +10,8 @@ import {
   FaRegEnvelope,
   FaGithub,
 } from "react-icons/fa";
-import axios from "axios";
 import styles from "../../styles/Profile.module.css";
+import { NEXT_PUBLIC_API_URL } from "../../utils/env";
 
 export default function ProfileWorker({ token, id, isProject, detailUser }) {
   const deleteProject = async (id) => {
@@ -25,15 +26,12 @@ export default function ProfileWorker({ token, id, isProject, detailUser }) {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(
-            `${process.env.NEXT_PUBLIC_API_URL}/project/${id}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-              // withCredentials: true,
-            }
-          );
+          await axios.delete(`${NEXT_PUBLIC_API_URL}/project/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            // withCredentials: true,
+          });
 
           Swal.fire(
             "Deleted!",
@@ -66,15 +64,12 @@ export default function ProfileWorker({ token, id, isProject, detailUser }) {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(
-            `${process.env.NEXT_PUBLIC_API_URL}/experience/${id}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-              // withCredentials: true,
-            }
-          );
+          await axios.delete(`${NEXT_PUBLIC_API_URL}/experience/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            // withCredentials: true,
+          });
 
           Swal.fire(
             "Deleted!",

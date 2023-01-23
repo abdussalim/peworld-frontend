@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/legacy/image";
 import styles from "../../styles/Home.module.css";
 import Banner2 from "../../public/image/baner2.png";
-import Image from "next/legacy/image";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 export default function Home2() {
   return (
@@ -22,7 +23,7 @@ export default function Home2() {
         </div>
         <div className={`${styles.side} col-12 col-md-6`}>
           <h1 className="fw-bold">
-            Kenapa harus mencari talent di {process.env.NEXT_PUBLIC_APP_NAME} ?
+            Kenapa harus mencari talent di {NEXT_PUBLIC_APP_NAME} ?
           </h1>
           <ul className="list-unstyled mt-3 text-start">
             <li className="mb-3">

@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/legacy/image";
 import styles from "../../styles/Home.module.css";
 import Banner from "../../public/image/baner1.png";
-import Image from "next/legacy/image";
-import Link from "next/link";
+import { NEXT_PUBLIC_APP_NAME } from "../../utils/env";
 
 export default function Home1() {
   return (
@@ -16,7 +17,7 @@ export default function Home1() {
           </p>
           <p className="text-secondary">
             Ayo raih Impianmu untuk berkarir dibidang IT bersama{" "}
-            <b>{process.env.NEXT_PUBLIC_APP_NAME}</b>
+            <b>{NEXT_PUBLIC_APP_NAME}</b>
             !.
           </p>
           <Link href="../../auth/register">
