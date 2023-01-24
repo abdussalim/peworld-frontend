@@ -7,10 +7,10 @@ import {
   GET_DETAIL_USER_FAILED,
   GET_DETAIL_USER_SUCCESS,
 } from "../../redux/actions/type";
+import Header from "../../components/Header";
 import ProfileWorker from "../../components/Profile/Worker";
 import ProfileRecruiter from "../../components/Profile/Recruiter";
 import { NEXT_PUBLIC_API_URL, NEXT_PUBLIC_APP_NAME } from "../../utils/env";
-import Header from "../../components/Header";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
